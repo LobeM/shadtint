@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <h1>ShadTint</h1>
+</div>
 
-## Getting Started
+<div align="center">
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/LobeM/shadtint?style=for-the-badge&logo=github">
+  <a href="https://x.com/LobeMusonda">
+    <img alt="X (formerly Twitter) URL" src="https://img.shields.io/twitter/url?url=https%3A%2F%2Fx.com%2FLobeMusonda&style=for-the-badge&logo=x&label=%40LobeMusonda&color=%2300000000" />
+  </a>
+</div>
 
-First, run the development server:
+<br />
+
+This project is inspired by **[tweakcn](https://tweakcn.com)** is a powerful Visual Theme Editor for tailwind CSS & shadcn/ui components. It comes with Beautiful theme presets to get started, while aiming to offer advanced customisation for each aspect of your UI. It is a learning project that has been built from scratch.
+
+## Motivation
+
+Websites made with shadcn/ui famously look the same. shadtint is a tool that helps you customize shadcn/ui components visually, to make your components stand-out. The goal is to build a platform where a user can discover endless customization options and then have the ability to put their own twist on it. Check our roadmap for more information
+
+## Run Locally
+
+**IMPORTANT: For contributions, please see [CONTRIBUTING.md](CONTRIBUTING.md).**
+
+### Prerequisites
+
+- Node.js 22+
+- npm / yarn / pnpm / bun
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com//LobeM/shadtint.git
+cd shadtint
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contributors
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<a href="https://github.com/LobeM/shadtint/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=LobeM/shadtint" />
+</a>
 
-## Learn More
+Made with [contrib.rocks](https://contrib.rocks).
 
-To learn more about Next.js, take a look at the following resources:
+### Interested in Contributing?
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Star History
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[![Star History Chart](https://api.star-history.com/svg?repos=LobeM/shadtint&type=Date)](https://www.star-history.com/#LobeM/shadtint&Date)
