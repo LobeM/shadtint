@@ -18,6 +18,7 @@ This repository contains the Next.js application for shadtint. Here's a simplifi
 ├── public/
     └── r/                # Holds JSON files for the theme registry
 └── src/
+    ├── actions/          # Next.js Server Actions
     ├── app/
         ├── (auth)/       # Authentication routes
         ├── (legal)/      # Legal pages (privacy policy)
