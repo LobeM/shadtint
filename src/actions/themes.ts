@@ -1,11 +1,11 @@
-'use server';
+"use server";
 
-import { db } from '@/db';
-import { theme as themeTable } from '@/db/schema';
-import { auth } from '@/lib/auth';
-import { UnauthorizedError } from '@/types/errors';
-import { eq } from 'drizzle-orm';
-import { headers } from 'next/headers';
+import { db } from "@/db";
+import { theme as themeTable } from "@/db/schema";
+import { auth } from "@/lib/auth";
+import { UnauthorizedError } from "@/types/errors";
+import { eq } from "drizzle-orm";
+import { headers } from "next/headers";
 
 // Helper to get user ID with better error handling
 async function getCurrentUserId(): Promise<string> {
@@ -22,16 +22,16 @@ async function getCurrentUserId(): Promise<string> {
 
 // Log errors for observability
 function logError(error: Error, context: Record<string, any>) {
-  console.error('Theme action error', error, context);
+  console.error("Theme action error", error, context);
 
   // TODO: Add server-side error reporting to PostHog or your preferred service
   // For production, you'd want to send critical errors to an external service
-  if (error.name === 'UnauthorizedError' || error.name === 'ValidationError') {
+  if (error.name === "UnauthorizedError" || error.name === "ValidationError") {
     // These are expected errors, log but don't report
-    console.warn('Expected error:', { error: error.message, context });
+    console.warn("Expected error:", { error: error.message, context });
   } else {
     // For unexpected errors, report to external service
-    console.error('Unexpected error:', { error: error.message, stack: error.stack, context });
+    console.error("Unexpected error:", { error: error.message, stack: error.stack, context });
   }
 }
 
@@ -42,7 +42,7 @@ export async function getThemes() {
     const userThemes = await db.select().from(themeTable).where(eq(themeTable.userId, userId));
     return userThemes;
   } catch (error) {
-    logError(error as Error, { action: 'getThemes' });
+    logError(error as Error, { action: "getThemes" });
     throw error;
   }
 }

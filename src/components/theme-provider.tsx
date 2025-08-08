@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { useThemePresetFromUrl } from '@/hooks/use-theme-preset-from-url';
-import { useEditorStore } from '@/store/editor-store';
-import { applyThemeToElement } from '@/utils/apply-theme';
-import * as React from 'react';
-import { useEffect } from 'react';
+import { useThemePresetFromUrl } from "@/hooks/use-theme-preset-from-url";
+import { useEditorStore } from "@/store/editor-store";
+import { applyThemeToElement } from "@/utils/apply-theme";
+import * as React from "react";
+import { useEffect } from "react";
 
-type Theme = 'light' | 'dark';
+type Theme = "light" | "dark";
 
 type ThemeProviderProps = {
   children: React.ReactNode;
@@ -22,7 +22,7 @@ type ThemeProviderState = {
 };
 
 const initialState: ThemeProviderState = {
-  theme: 'light',
+  theme: "light",
   setTheme: () => null,
   toggleTheme: () => null,
 };
@@ -48,9 +48,9 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
 
   const handleThemeToggle = (coords?: Coords) => {
     const root = document.documentElement;
-    const newMode = themeState.currentMode === 'light' ? 'dark' : 'light';
+    const newMode = themeState.currentMode === "light" ? "dark" : "light";
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (!document.startViewTransition || prefersReducedMotion) {
       handleThemeChange(newMode);
@@ -58,8 +58,8 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
     }
 
     if (coords) {
-      root.style.setProperty('--x', `${coords.x}px`);
-      root.style.setProperty('--y', `${coords.y}px`);
+      root.style.setProperty("--x", `${coords.x}px`);
+      root.style.setProperty("--y", `${coords.y}px`);
     }
 
     document.startViewTransition(() => {
@@ -83,7 +83,7 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
 export function useTheme() {
   const context = React.useContext(ThemeProviderContext);
   if (context === undefined) {
-    throw new Error('useTheme must be used within a ThemeProvider');
+    throw new Error("useTheme must be used within a ThemeProvider");
   }
   return context;
 }

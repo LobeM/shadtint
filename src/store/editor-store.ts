@@ -1,9 +1,9 @@
-import { defaultThemeState } from '@/config/theme';
-import { isDeepEqual } from '@/lib/utils';
-import { ThemeEditorState } from '@/types/editor';
-import { getPresetThemeStyles } from '@/utils/theme-preset-helper';
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { defaultThemeState } from "@/config/theme";
+import { isDeepEqual } from "@/lib/utils";
+import { ThemeEditorState } from "@/types/editor";
+import { getPresetThemeStyles } from "@/utils/theme-preset-helper";
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 const MAX_HISTORY_COUNT = 30;
 const HISTORY_OVERRIDE_THRESHOLD_MS = 500; // 0.5 seconds
@@ -141,7 +141,7 @@ export const useEditorStore = create<EditorStore>()(
             future: [],
           });
         } else {
-          console.warn('No theme checkpoint available to restore to.');
+          console.warn("No theme checkpoint available to restore to.");
         }
       },
       hasThemeChangedFromCheckpoint: () => {
@@ -150,7 +150,7 @@ export const useEditorStore = create<EditorStore>()(
       },
       hasUnsavedChanges: () => {
         const themeState = get().themeState;
-        const presetThemeStyles = getPresetThemeStyles(themeState.preset ?? 'default');
+        const presetThemeStyles = getPresetThemeStyles(themeState.preset ?? "default");
         const stylesChanged = !isDeepEqual(themeState.styles, presetThemeStyles);
         const hslChanged = !isDeepEqual(
           themeState.hslAdjustments,
@@ -160,7 +160,7 @@ export const useEditorStore = create<EditorStore>()(
       },
       resetToCurrentPreset: () => {
         const currentThemeState = get().themeState;
-        const presetThemeStyles = getPresetThemeStyles(currentThemeState.preset ?? 'default');
+        const presetThemeStyles = getPresetThemeStyles(currentThemeState.preset ?? "default");
         const newThemeState: ThemeEditorState = {
           ...currentThemeState,
           styles: presetThemeStyles,
@@ -231,6 +231,6 @@ export const useEditorStore = create<EditorStore>()(
       canUndo: () => get().history.length > 0,
       canRedo: () => get().future.length > 0,
     }),
-    { name: 'editor-storage' }
+    { name: "editor-storage" }
   )
 );

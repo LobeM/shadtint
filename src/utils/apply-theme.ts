@@ -1,20 +1,20 @@
-import { COMMON_STYLES } from '@/config/theme';
-import { ThemeEditorState } from '@/types/editor';
-import { ThemeStyleProps, ThemeStyles } from '@/types/theme';
-import { applyStyleToElement } from './apply-style-to-element';
-import { colorFormatter } from './color-converter';
-import { setShadowVariables } from './shadows';
+import { COMMON_STYLES } from "@/config/theme";
+import { ThemeEditorState } from "@/types/editor";
+import { ThemeStyleProps, ThemeStyles } from "@/types/theme";
+import { applyStyleToElement } from "./apply-style-to-element";
+import { colorFormatter } from "./color-converter";
+import { setShadowVariables } from "./shadows";
 
-type Theme = 'light' | 'dark';
+type Theme = "light" | "dark";
 
 const COMMON_NON_COLOR_KEYS = COMMON_STYLES;
 
 // Helper functions (not exported, used internally by applyThemeToElement)
 const updateThemeClass = (root: HTMLElement, mode: Theme) => {
-  if (mode === 'light') {
-    root.classList.remove('dark');
+  if (mode === "light") {
+    root.classList.remove("dark");
   } else {
-    root.classList.add('dark');
+    root.classList.add("dark");
   }
 };
 
@@ -24,7 +24,7 @@ const applyCommonStyles = (root: HTMLElement, themeStyles: ThemeStyleProps) => {
       COMMON_NON_COLOR_KEYS.includes(key as (typeof COMMON_NON_COLOR_KEYS)[number])
     )
     .forEach(([key, value]) => {
-      if (typeof value === 'string') {
+      if (typeof value === "string") {
         applyStyleToElement(root, key, value);
       }
     });
@@ -33,10 +33,10 @@ const applyCommonStyles = (root: HTMLElement, themeStyles: ThemeStyleProps) => {
 const applyThemeColors = (root: HTMLElement, themeStyles: ThemeStyles, mode: Theme) => {
   Object.entries(themeStyles[mode]).forEach(([keyof, value]) => {
     if (
-      typeof value === 'string' &&
+      typeof value === "string" &&
       !COMMON_NON_COLOR_KEYS.includes(keyof as (typeof COMMON_NON_COLOR_KEYS)[number])
     ) {
-      const hslValue = colorFormatter(value, 'hsl', '4');
+      const hslValue = colorFormatter(value, "hsl", "4");
       applyStyleToElement(root, keyof, hslValue);
     }
   });

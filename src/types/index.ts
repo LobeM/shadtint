@@ -1,1 +1,1 @@
-export type ColorFormat = 'hex' | 'rgb' | 'hsl' | 'oklch';
+export type ColorFormat = "hex" | "rgb" | "hsl" | "oklch";

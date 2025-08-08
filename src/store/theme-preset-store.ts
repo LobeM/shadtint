@@ -1,7 +1,7 @@
-import { getThemes } from '@/actions/themes';
-import { ThemePreset } from '@/types/theme';
-import { defaultPresets } from '@/utils/theme-presets';
-import { create } from 'zustand';
+import { getThemes } from "@/actions/themes";
+import { ThemePreset } from "@/types/theme";
+import { defaultPresets } from "@/utils/theme-presets";
+import { create } from "zustand";
 
 interface ThemePresetStore {
   presets: Record<string, ThemePreset>;
@@ -38,7 +38,7 @@ export const useThemePresetStore = create<ThemePresetStore>()((set, get) => ({
           acc[theme.id] = {
             label: theme.name,
             styles: theme.styles,
-            source: 'SAVED',
+            source: "SAVED",
           };
           return acc;
         },
@@ -51,7 +51,7 @@ export const useThemePresetStore = create<ThemePresetStore>()((set, get) => ({
         },
       }));
     } catch (error) {
-      console.error('Error loading saved presets', error);
+      console.error("Error loading saved presets", error);
     }
   },
   unloadSavedPresets: () => {
