@@ -1,16 +1,19 @@
 "use client";
 
+import { ThemePresetButtons } from "@/components/home/theme-preset-buttons";
 import { useTheme } from "@/components/theme-provider";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { useEditorStore } from "@/store/editor-store";
+import { defaultPresets } from "@/utils/theme-presets";
 import { MoonIcon, SunIcon } from "lucide-react";
 import Link from "next/link";
 
 export default function NotFound() {
   const { theme, toggleTheme } = useTheme();
-  //   const { themeState, setThemeState } = useEditorStore();
-  //   const mode = themeState.currentMode;
-  //   const presetNames = Object.keys(defaultPresets);
+  const { themeState, applyThemePreset } = useEditorStore();
+  const mode = themeState.currentMode;
+  const presetNames = Object.keys(defaultPresets);
 
   return (
     <div className="bg-background flex min-h-screen flex-col items-center justify-center px-4">
@@ -48,6 +51,15 @@ export default function NotFound() {
       >
         Back to Home
       </Link>
+
+      <div className="flex w-full justify-center">
+        <ThemePresetButtons
+          presetNames={presetNames}
+          mode={mode}
+          themeState={themeState}
+          applyThemePreset={applyThemePreset}
+        />
+      </div>
     </div>
   );
 }
