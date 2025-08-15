@@ -1,3 +1,4 @@
+import { DynamicFontLoader } from "@/components/dynamic-font-loader";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -25,7 +26,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html>
+      <head>
+        <DynamicFontLoader />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <NuqsAdapter>
           <ThemeProvider defaultTheme="light">{children}</ThemeProvider>
