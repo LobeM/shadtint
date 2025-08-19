@@ -1,8 +1,10 @@
 import { DynamicFontLoader } from "@/components/dynamic-font-loader";
+import { PostHogInit } from "@/components/posthog-init";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeScript } from "@/components/theme-script";
 import type { Metadata, Viewport } from "next";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { Suspense } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -74,8 +76,11 @@ export default function RootLayout({
       </head>
       <body>
         <NuqsAdapter>
-          <ThemeProvider defaultTheme="light">{children}</ThemeProvider>
+          <Suspense>
+            <ThemeProvider defaultTheme="light">{children}</ThemeProvider>
+          </Suspense>
         </NuqsAdapter>
+        <PostHogInit />
       </body>
     </html>
   );
